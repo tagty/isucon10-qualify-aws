@@ -40,8 +40,14 @@ CREATE TABLE isuumo.chair
     stock           INTEGER                  NOT NULL
 );
 
-ALTER TABLE isuumo.chair ADD INDEX index_price_and_id_on_chair(price, id);
-ALTER TABLE isuumo.chair ADD INDEX index_popularity_desc_and_id_on_chair(popularity_desc, id);
 ALTER TABLE isuumo.estate ADD INDEX index_rent_and_id_on_estate(rent, id);
 ALTER TABLE isuumo.estate ADD INDEX index_popularity_desc_and_id_on_estate(popularity_desc, id);
 ALTER TABLE isuumo.estate ADD SPATIAL INDEX index_point_on_estate(point);
+ALTER TABLE isuumo.estate ADD INDEX index_rent_and_door_height_on_estate(rent, door_height);
+ALTER TABLE isuumo.estate ADD INDEX index_rent_and_door_width_on_estate(rent, door_width);
+
+ALTER TABLE isuumo.chair ADD INDEX index_price_and_id_on_chair(price, id);
+ALTER TABLE isuumo.chair ADD INDEX index_popularity_desc_and_id_on_chair(popularity_desc, id);
+ALTER TABLE isuumo.chair ADD INDEX index_price_and_stock_on_chair(price, stock);
+ALTER TABLE isuumo.chair ADD INDEX index_height_and_stock_on_chair(height, stock);
+ALTER TABLE isuumo.chair ADD INDEX index_kind_and_stock_on_chair(kind, stock);
